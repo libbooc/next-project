@@ -3,7 +3,7 @@ import posts from "@/utils/posts"
 
 // GET(Request) --> /api/posts
 export async function GET(request) {
-    const data = posts
+    const data = await prisma.post.findMany()
 
     return new Response(JSON.stringify(data))
 }
